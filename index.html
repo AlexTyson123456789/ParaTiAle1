@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>🌻 Flores Amarillas para Ti 🌻</title>
+  <title>🌻🤗 Flores Amarillas para Ti 🤗🌻</title>
   <style>
     body {
       margin: 0;
@@ -17,7 +17,7 @@
 
     h1 {
       position: absolute;
-      top: 15%;
+      top: 10%;
       font-size: 3rem;
       color: #d88c00;
       text-shadow: 2px 2px 4px #fff;
@@ -28,13 +28,31 @@
 
     h2 {
       position: absolute;
-      bottom: 15%;
+      bottom: 10%;
       font-size: 2rem;
       color: #5c3d00;
       text-shadow: 1px 1px 3px #fff;
       animation: fadeIn 5s ease-in-out;
       text-align: center;
       width: 100%;
+    }
+
+    /* Flor grande central */
+    .big-flower {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 300px;
+      height: 300px;
+      background: url('https://i.ibb.co/qJt8y5d/yellow-flower.png') no-repeat center/contain;
+      animation: pulse 4s infinite ease-in-out;
+    }
+
+    /* Animación de respiración */
+    @keyframes pulse {
+      0%, 100% { transform: translate(-50%, -50%) scale(1); }
+      50% { transform: translate(-50%, -50%) scale(1.1); }
     }
 
     .flower {
@@ -73,7 +91,11 @@
 </head>
 <body>
   <h1>🌼 Te regalo flores amarillas 🌼</h1>
-  <h2>Porque eres alguien muy especial para mí 💛</h2>
+
+  <!-- Flor amarilla grande -->
+  <div class="big-flower"></div>
+
+  <h2> ❤️ Porque eres alguien muy especial para mí ❤️</h2>
 
   <!-- Botón para activar música -->
   <button id="music-btn">🎶 Reproducir música</button>
@@ -114,3 +136,4 @@
   </script>
 </body>
 </html>
+
