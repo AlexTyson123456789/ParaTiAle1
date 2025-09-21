@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>🌻 Flores Amarillas para Ti 🌻</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #fff8dc, #ffe17d);
+      overflow: hidden;
+      font-family: "Poppins", sans-serif;
+    }
+
+    h1 {
+      position: absolute;
+      top: 15%;
+      font-size: 3rem;
+      color: #d88c00;
+      text-shadow: 2px 2px 4px #fff;
+      animation: fadeIn 3s ease-in-out;
+      text-align: center;
+      width: 100%;
+    }
+
+    h2 {
+      position: absolute;
+      bottom: 15%;
+      font-size: 2rem;
+      color: #5c3d00;
+      text-shadow: 1px 1px 3px #fff;
+      animation: fadeIn 5s ease-in-out;
+      text-align: center;
+      width: 100%;
+    }
+
+    .flower {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      background: url('https://i.ibb.co/qJt8y5d/yellow-flower.png') no-repeat center/contain;
+      animation: float 10s infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+      20% { opacity: 1; }
+      100% { transform: translateY(-120vh) rotate(360deg); opacity: 0; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Botón de música */
+    #music-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: #ffd54f;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: bold;
+      box-shadow: 2px 2px 6px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body>
+  <h1>🌼 Te regalo flores amarillas 🌼</h1>
+  <h2>Porque eres alguien muy especial para mí 💛</h2>
+
+  <!-- Botón para activar música -->
+  <button id="music-btn">🎶 Reproducir música</button>
+  <audio id="bg-music" loop>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    Tu navegador no soporta audio.
+  </audio>
+
+  <script>
+    // Generar flores flotantes
+    function createFlower() {
+      const flower = document.createElement("div");
+      flower.classList.add("flower");
+      flower.style.left = Math.random() * window.innerWidth + "px";
+      flower.style.animationDuration = (5 + Math.random() * 5) + "s";
+      document.body.appendChild(flower);
+
+      setTimeout(() => {
+        flower.remove();
+      }, 10000);
+    }
+
+    setInterval(createFlower, 800);
+
+    // Control de música
+    const music = document.getElementById("bg-music");
+    const btn = document.getElementById("music-btn");
+
+    btn.addEventListener("click", () => {
+      if (music.paused) {
+        music.play();
+        btn.textContent = "⏸ Pausar música";
+      } else {
+        music.pause();
+        btn.textContent = "🎶 Reproducir música";
+      }
+    });
+  </script>
+</body>
+</html>
